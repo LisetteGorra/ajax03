@@ -8,6 +8,9 @@
 </head>
 <body>
     <button id="button">Get Text File</button>
+    <br><br>
+    <div id="text"></div>
+    
     
     <script>
         //Create an event listener
@@ -16,20 +19,33 @@
            //Create XHR object 
            var xhr = new XMLHttpRequest();
            //OPEN - TYPE, URL/FILE, ASYNC
-           xhr.open('GET', 'sample.txt', true);
+           xhr.open('GET', 'sample2.txt', true);
            
            console.log('READYSTATE: ', xhr.readyState);
            
-              xhr.onload = function() {
+           //optional - used for loaders
+           xhr.onprogress = function(){
+           console.log('READYSTATE: ', xhr.readyState);    
+           }
+           
+      
+            xhr.onload = function() {
+              console.log('READYSTATE: ', xhr.readyState);
               if(this.status == 200){
                 //   console.log(this.responseText);
-                   
+                document.getElementById('text').innerHTML = this.responseText;
+              } elseif(this.status = 404){
+                 document.getElementById('text').innerHTML = 'Not Found';
+          
               }
           }
-        
+            xhr.onerror = function(){
+                console.log('Request Error...');
+            }
            
       
         // xhr.onreadystatechange = function(){
+        //         console.log('READYSTATE: ', xhr.readyState);
         //     if(this.readyState == 4 && this.status == 200) {
         //         // console.log(this.responseText);
         //     }
