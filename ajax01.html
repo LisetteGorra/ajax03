@@ -15,6 +15,7 @@
     <script>
         //Create an event listener
         document.getElementById('button').addEventListener('click', loadText);
+       
         function loadText(){
            //Create XHR object 
            var xhr = new XMLHttpRequest();
@@ -29,12 +30,12 @@
            }
            
       
-            xhr.onload = function() {
+            xhr.onload = function(){
               console.log('READYSTATE: ', xhr.readyState);
               if(this.status == 200){
                 //   console.log(this.responseText);
                 document.getElementById('text').innerHTML = this.responseText;
-              } elseif(this.status = 404){
+              } else if(this.status = 404){
                  document.getElementById('text').innerHTML = 'Not Found';
           
               }
