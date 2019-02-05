@@ -24,7 +24,8 @@
             
             xhr.onload = function(){
                 if(this.status == 200){
-                    console.log(this.responseText);
+                    var user = JSON.parse(this.responseText);
+                    console.log(user.name);
                 }
             }
             xhr.send();
