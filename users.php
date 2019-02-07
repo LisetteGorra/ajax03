@@ -1,6 +1,6 @@
 <?php
 //Create Connection
-$conn = mysqli_connect('localhost', 'root', '123456', 'ajaxtest');
+$conn = mysqli_connect('localhost', 'lgorra', '', 'ajaxtest');
 
 $query = 'SELECT * FROM users';
 
